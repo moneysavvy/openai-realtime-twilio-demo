@@ -1,0 +1,191 @@
+{
+  "models": [
+    {
+      "title": "OpenAI GPT-4o",
+      "provider": "openai",
+      "model": "gpt-4",
+      "apiKey": "YOUR_OPENAI_API_KEY"
+    },
+    {
+      "title": "Anthropic Claude",
+      "provider": "anthropic",
+      "model": "claude-v1",
+      "apiKey": "YOUR_ANTHROPIC_API_KEY"
+    }
+  ],
+  "embeddingsProvider": {
+    "provider": "openai",
+    "model": "text-embedding-ada-002",
+    "apiKey": "YOUR_OPENAI_API_KEY"
+  },
+  "tabAutocompleteModel": {
+    "title": "Codestral",
+    "provider": "mistral",
+    "model": "codestral-latest",
+    "apiKey": "YOUR_MISTRAL_API_KEY"
+  },
+  "tabAutocompleteOptions": {
+    "disable": false,
+    "useFileSuffix": true,
+    "maxPromptTokens": 1500,
+    "debounceDelay": 500,
+    "maxSuffixPercentage": 0.2,
+    "prefixPercentage": 0.5,
+    "template": "{{{prefix}}}{{{suffix}}}",
+    "multilineCompletions": "auto",
+    "useCache": true,
+    "onlyMyCode": true,
+    "disableInFiles": ["*.md"]
+  },
+  "contextProviders": [
+    {
+      "name": "file",
+      "run": {
+        "type": "file-context"
+      }
+    },
+    {
+      "name": "code",
+      "run": {
+        "type": "code-context"
+      }
+    },
+    {
+      "name": "git-diff",
+      "run": {
+        "type": "git-diff"
+      }
+    },
+    {
+      "name": "currentFile",
+      "run": {
+        "type": "current-file"
+      }
+    },
+    {
+      "name": "terminal",
+      "run": {
+        "type": "terminal-context"
+      }
+    },
+    {
+      "name": "docs",
+      "run": {
+        "type": "documentation"
+      }
+    },
+    {
+      "name": "open",
+      "run": {
+        "type": "open-files",
+        "options": {
+          "onlyPinned": false,
+          "includeCurrentFile": true,
+          "includeVisibleFiles": true
+        }
+      }
+    },
+    {
+      "name": "web",
+      "run": {
+        "type": "web-search",
+        "options": {
+          "n": 5,
+          "includeRelevanceScore": true,
+          "searchEngine": "google",
+          "maxTokens": 1000
+        }
+      }
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "share",
+      "description": "Share code or conversation",
+      "run": {
+        "type": "share",
+        "options": {
+          "target": "conversation"
+        }
+      }
+    },
+    {
+      "name": "cmd",
+      "description": "Execute terminal commands",
+      "run": {
+        "type": "terminal",
+        "options": {
+          "cwd": "${workspaceRoot}"
+        }
+      }
+    },
+    {
+      "name": "commit",
+      "description": "Create git commits",
+      "run": {
+        "type": "git-commit",
+        "options": {
+          "includeDiff": true
+        }
+      }
+    },
+    {
+      "name": "http",
+      "description": "Does something custom",
+      "run": {
+        "type": "http",
+        "options": {
+          "method": "GET",
+          "url": "<my server endpoint>"
+        }
+      }
+    },
+    {
+      "name": "issue",
+      "description": "Generate a link to a drafted GitHub issue",
+      "run": {
+        "type": "github-issue",
+        "options": {
+          "repo": "continuedev/continue"
+        }
+      }
+    },
+    {
+      "name": "postgres",
+      "description": "Query Postgres database",
+      "run": {
+        "type": "database",
+        "options": {
+          "type": "postgres",
+          "connection": {
+            "user": "username",
+            "host": "localhost",
+            "database": "database",
+            "password": "password",
+            "port": 5432
+          }
+        }
+      }
+    },
+    {
+      "name": "discord",
+      "description": "Access Discord messages",
+      "run": {
+        "type": "discord",
+        "options": {
+          "channelId": "YOUR_CHANNEL_ID"
+        }
+      }
+    },
+    {
+      "name": "jira",
+      "description": "Access Jira issues",
+      "run": {
+        "type": "jira",
+        "options": {
+          "apiVersion": "2"
+        }
+      }
+    }
+  ]
+}
