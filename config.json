@@ -170,11 +170,11 @@
         "options": {
           "repos": [
             {
-              "owner": "your-github-username",
-              "repo": "your-repo-name"
+              "owner": "${GITHUB_USER}",
+              "repo": "${GITHUB_REPO}"
             }
           ],
-          "githubToken": "ghp_1234567890abcdef"
+          "githubToken": "${GITHUB_TOKEN}"
         }
       }
     },
@@ -186,31 +186,13 @@
           "connections": [
             {
               "name": "postgres-main",
-              "connection_type": "postgres",
+              "connection_type": "postgres", 
               "connection": {
-                "user": "postgres",
-                "host": "localhost",
-                "database": "main_db",
-                "password": "postgres123",
-                "port": 5432
-              }
-            },
-            {
-              "name": "mysql-app",
-              "connection_type": "mysql",
-              "connection": {
-                "user": "root",
-                "host": "localhost",
-                "database": "app_db",
-                "password": "mysql123",
-                "port": 3306
-              }
-            },
-            {
-              "name": "sqlite-local",
-              "connection_type": "sqlite",
-              "connection": {
-                "filename": "./data/local.db"
+                "user": "${PGUSER}",
+                "host": "${PGHOST}",
+                "database": "${PGDATABASE}",
+                "password": "${PGPASSWORD}",
+                "port": "${PGPORT}"
               }
             }
           ]
@@ -222,11 +204,11 @@
       "run": {
         "type": "postgres-context",
         "options": {
-          "host": "localhost",
-          "port": 5432,
-          "user": "postgres",
-          "password": "postgres123",
-          "database": "main_db",
+          "host": "${PGHOST}",
+          "port": "${PGPORT}",
+          "user": "${PGUSER}",
+          "password": "${PGPASSWORD}",
+          "database": "${PGDATABASE}",
           "schema": "public",
           "sampleRows": 3
         }
@@ -237,7 +219,7 @@
       "run": {
         "type": "google-context",
         "options": {
-          "serperApiKey": "1234567890abcdef"
+          "serperApiKey": "${SERPER_API_KEY}"
         }
       }
     },
@@ -246,7 +228,7 @@
       "run": {
         "type": "gitlab-mr-context",
         "options": {
-          "token": "glpat-1234567890abcdef",
+          "token": "${GITLAB_TOKEN}",
           "domain": "gitlab.com",
           "filterComments": true
         }
@@ -257,9 +239,9 @@
       "run": {
         "type": "jira-context",
         "options": {
-          "domain": "your-company.atlassian.net",
-          "email": "your.email@company.com",
-          "token": "JIRA_API_TOKEN",
+          "domain": "${JIRA_DOMAIN}",
+          "email": "${JIRA_EMAIL}",
+          "token": "${JIRA_TOKEN}",
           "apiVersion": "3"
         }
       }
@@ -269,16 +251,12 @@
       "run": {
         "type": "discord-context",
         "options": {
-          "discordKey": "YOUR_BOT_TOKEN",
-          "guildId": "123456789012345678",
+          "discordKey": "${DISCORD_TOKEN}",
+          "guildId": "${DISCORD_GUILD_ID}",
           "channels": [
             {
-              "id": "987654321098765432",
-              "name": "general"
-            },
-            {
-              "id": "123456789012345678",
-              "name": "development"
+              "id": "${DISCORD_CHANNEL_ID}",
+              "name": "${DISCORD_CHANNEL_NAME}"
             }
           ]
         }
@@ -308,8 +286,8 @@
       "run": {
         "type": "greptile-context",
         "options": {
-          "GreptileToken": "greptile_1234567890abcdef",
-          "GithubToken": "ghp_1234567890abcdef"
+          "GreptileToken": "${GREPTILE_TOKEN}",
+          "GithubToken": "${GITHUB_TOKEN}"
         }
       }
     }
