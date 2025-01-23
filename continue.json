@@ -1,0 +1,212 @@
+{
+  "models": [
+    {
+      "title": "OpenAI GPT-4",
+      "provider": "openai",
+      "model": "gpt-4",
+      "apiKey": "YOUR_OPENAI_API_KEY"
+    },
+    {
+      "title": "Anthropic Claude",
+      "provider": "anthropic",
+      "model": "claude-v1",
+      "apiKey": "YOUR_ANTHROPIC_API_KEY"
+    }
+  ],
+  "embeddingsProvider": {
+    "provider": "openai",
+    "model": "text-embedding-ada-002",
+    "apiKey": "YOUR_OPENAI_API_KEY"
+  },
+  "tabAutocompleteModel": {
+    "title": "Codestral",
+    "provider": "mistral",
+    "model": "codestral-latest",
+    "apiKey": "YOUR_MISTRAL_API_KEY"
+  },
+  "tabAutocompleteOptions": {
+    "disable": false,
+    "useFileSuffix": true,
+    "maxPromptTokens": 1500,
+    "debounceDelay": 500,
+    "maxSuffixPercentage": 0.2,
+    "prefixPercentage": 0.5,
+    "template": "{{{prefix}}}{{{suffix}}}",
+    "multilineCompletions": "auto",
+    "useCache": true,
+    "onlyMyCode": true,
+    "disableInFiles": ["*.md"]
+  },
+  "contextProviders": [
+    {
+      "name": "file"
+    },
+    {
+      "name": "code"
+    },
+    {
+      "name": "git-diff"
+    },
+    {
+      "name": "currentFile"
+    },
+    {
+      "name": "terminal"
+    },
+    {
+      "name": "docs"
+    },
+    {
+      "name": "open",
+      "params": {
+        "onlyPinned": false,
+        "includeCurrentFile": true,
+        "includeVisibleFiles": true
+      }
+    },
+    {
+      "name": "web",
+      "params": {
+        "n": 5,
+        "includeRelevanceScore": true,
+        "searchEngine": "google",
+        "maxTokens": 1000
+      }
+    },
+    {
+      "name": "codebase"
+    },
+    {
+      "name": "folder"
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "url"
+    },
+    {
+      "name": "clipboard"
+    },
+    {
+      "name": "tree"
+    },
+    {
+      "name": "problems"
+    },
+    {
+      "name": "debugger",
+      "params": {
+        "stackDepth": 3
+      }
+    },
+    {
+      "name": "repo-map",
+      "params": {
+        "includeSignatures": true
+      }
+    },
+    {
+      "name": "os"
+    },
+    {
+      "name": "database",
+      "params": {
+        "connections": [
+          {
+            "name": "postgres",
+            "connection_type": "postgres",
+            "connection": {
+              "user": "username",
+              "host": "localhost",
+              "database": "database",
+              "password": "password",
+              "port": 5432
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "commit",
+      "params": {
+        "Depth": 50,
+        "LastXCommitsDepth": 10
+      }
+    },
+    {
+      "name": "greptile",
+      "params": {
+        "GreptileToken": "",
+        "GithubToken": ""
+      }
+    },
+    {
+      "name": "jira",
+      "params": {
+        "apiVersion": "2"
+      }
+    },
+    {
+      "name": "discord"
+    },
+    {
+      "name": "issue"
+    },
+    {
+      "name": "http"
+    },
+    {
+      "name": "google"
+    },
+    {
+      "name": "postgres"
+    },
+    {
+      "name": "gitlab-mr"
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "share",
+      "description": "Share code or conversation"
+    },
+    {
+      "name": "cmd",
+      "description": "Execute terminal commands"
+    },
+    {
+      "name": "commit",
+      "description": "Create git commits"
+    },
+    {
+      "name": "http",
+      "description": "Does something custom",
+      "params": {
+        "url": "<my server endpoint>"
+      }
+    },
+    {
+      "name": "issue",
+      "description": "Generate a link to a drafted GitHub issue",
+      "params": {
+        "repositoryUrl": "https://github.com/continuedev/continue"
+      }
+    },
+    {
+      "name": "onboard",
+      "description": "Familiarize yourself with the codebase"
+    }
+  ],
+  "experimental": {
+    "modelContextProtocolServers": [
+      {
+        "transport": {
+          "type": "stdio",
+          "command": "uvx",
+          "args": ["mcp-server-sqlite", "--db-path", "/Users/NAME/test.db"]
+        }
+      }
+    ]
+  }
+}
