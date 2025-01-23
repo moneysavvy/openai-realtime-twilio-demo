@@ -53,7 +53,7 @@
       }
     },
     {
-      "name": "git-diff",
+      "name": "diff",
       "run": {
         "type": "git-diff"
       }
@@ -93,9 +93,223 @@
         "type": "web-search",
         "options": {
           "n": 5,
-          "includeRelevanceScore": true,
-          "searchEngine": "google",
-          "maxTokens": 1000
+          "includeRelevanceScore": true
+        }
+      }
+    },
+    {
+      "name": "codebase",
+      "run": {
+        "type": "codebase-context"
+      }
+    },
+    {
+      "name": "folder",
+      "run": {
+        "type": "folder-context"
+      }
+    },
+    {
+      "name": "search",
+      "run": {
+        "type": "search-context"
+      }
+    },
+    {
+      "name": "url",
+      "run": {
+        "type": "url-context"
+      }
+    },
+    {
+      "name": "clipboard",
+      "run": {
+        "type": "clipboard-context"
+      }
+    },
+    {
+      "name": "tree",
+      "run": {
+        "type": "tree-context"
+      }
+    },
+    {
+      "name": "problems",
+      "run": {
+        "type": "problems-context"
+      }
+    },
+    {
+      "name": "debugger",
+      "run": {
+        "type": "debugger-context",
+        "options": {
+          "stackDepth": 3
+        }
+      }
+    },
+    {
+      "name": "repo-map",
+      "run": {
+        "type": "repo-map-context",
+        "options": {
+          "includeSignatures": true
+        }
+      }
+    },
+    {
+      "name": "os",
+      "run": {
+        "type": "os-context"
+      }
+    },
+    {
+      "name": "issue",
+      "run": {
+        "type": "github-issue-context",
+        "options": {
+          "repos": [
+            {
+              "owner": "your-github-username",
+              "repo": "your-repo-name"
+            }
+          ],
+          "githubToken": "ghp_1234567890abcdef"
+        }
+      }
+    },
+    {
+      "name": "database",
+      "run": {
+        "type": "database-context",
+        "options": {
+          "connections": [
+            {
+              "name": "postgres-main",
+              "connection_type": "postgres",
+              "connection": {
+                "user": "postgres",
+                "host": "localhost",
+                "database": "main_db",
+                "password": "postgres123",
+                "port": 5432
+              }
+            },
+            {
+              "name": "mysql-app",
+              "connection_type": "mysql",
+              "connection": {
+                "user": "root",
+                "host": "localhost",
+                "database": "app_db",
+                "password": "mysql123",
+                "port": 3306
+              }
+            },
+            {
+              "name": "sqlite-local",
+              "connection_type": "sqlite",
+              "connection": {
+                "filename": "./data/local.db"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "postgres",
+      "run": {
+        "type": "postgres-context",
+        "options": {
+          "host": "localhost",
+          "port": 5432,
+          "user": "postgres",
+          "password": "postgres123",
+          "database": "main_db",
+          "schema": "public",
+          "sampleRows": 3
+        }
+      }
+    },
+    {
+      "name": "google",
+      "run": {
+        "type": "google-context",
+        "options": {
+          "serperApiKey": "1234567890abcdef"
+        }
+      }
+    },
+    {
+      "name": "gitlab-mr",
+      "run": {
+        "type": "gitlab-mr-context",
+        "options": {
+          "token": "glpat-1234567890abcdef",
+          "domain": "gitlab.com",
+          "filterComments": true
+        }
+      }
+    },
+    {
+      "name": "jira",
+      "run": {
+        "type": "jira-context",
+        "options": {
+          "domain": "your-company.atlassian.net",
+          "email": "your.email@company.com",
+          "token": "JIRA_API_TOKEN",
+          "apiVersion": "3"
+        }
+      }
+    },
+    {
+      "name": "discord",
+      "run": {
+        "type": "discord-context",
+        "options": {
+          "discordKey": "YOUR_BOT_TOKEN",
+          "guildId": "123456789012345678",
+          "channels": [
+            {
+              "id": "987654321098765432",
+              "name": "general"
+            },
+            {
+              "id": "123456789012345678",
+              "name": "development"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "http",
+      "run": {
+        "type": "http-context",
+        "options": {
+          "url": "https://api.your-company.com/v1/data"
+        }
+      }
+    },
+    {
+      "name": "commit",
+      "run": {
+        "type": "commit-context",
+        "options": {
+          "Depth": 50,
+          "LastXCommitsDepth": 10
+        }
+      }
+    },
+    {
+      "name": "greptile",
+      "run": {
+        "type": "greptile-context",
+        "options": {
+          "GreptileToken": "greptile_1234567890abcdef",
+          "GithubToken": "ghp_1234567890abcdef"
         }
       }
     }
