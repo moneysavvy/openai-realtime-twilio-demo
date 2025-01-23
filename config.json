@@ -26,17 +26,18 @@
       "apiKey": "YOUR_MISTRAL_API_KEY"
     },
     "options": {
-    "disable": false,
-    "useFileSuffix": true,
-    "maxPromptTokens": 1500,
-    "debounceDelay": 500,
-    "maxSuffixPercentage": 0.2,
-    "prefixPercentage": 0.5,
-    "template": "{{{prefix}}}{{{suffix}}}",
-    "multilineCompletions": "auto",
-    "useCache": true,
-    "onlyMyCode": true,
-    "disableInFiles": ["*.md"]
+      "disable": false,
+      "useFileSuffix": true,
+      "maxPromptTokens": 1500,
+      "debounceDelay": 500,
+      "maxSuffixPercentage": 0.2,
+      "prefixPercentage": 0.5,
+      "template": "{{{prefix}}}{{{suffix}}}",
+      "multilineCompletions": "auto",
+      "useCache": true,
+      "onlyMyCode": true,
+      "disableInFiles": ["*.md"]
+    }
   },
   "contextProviders": [
     {
