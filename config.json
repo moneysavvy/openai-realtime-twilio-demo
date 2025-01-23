@@ -1,7 +1,7 @@
 {
   "models": [
     {
-      "title": "OpenAI GPT-4o",
+      "title": "OpenAI GPT-4",
       "provider": "openai",
       "model": "gpt-4",
       "apiKey": "YOUR_OPENAI_API_KEY"
@@ -18,13 +18,14 @@
     "model": "text-embedding-ada-002",
     "apiKey": "YOUR_OPENAI_API_KEY"
   },
-  "tabAutocompleteModel": {
-    "title": "Codestral",
-    "provider": "mistral",
-    "model": "codestral-latest",
-    "apiKey": "YOUR_MISTRAL_API_KEY"
-  },
-  "tabAutocompleteOptions": {
+  "tabAutocomplete": {
+    "model": {
+      "title": "Codestral",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "apiKey": "YOUR_MISTRAL_API_KEY"
+    },
+    "options": {
     "disable": false,
     "useFileSuffix": true,
     "maxPromptTokens": 1500,
